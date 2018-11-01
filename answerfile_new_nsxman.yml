@@ -1,0 +1,5 @@
+nsxmanager_spec:
+  raml_file: '/root/nsxraml/nsxvapi.raml'
+  host: '192.168.3.248:443'
+  user: 'admin'
+  password: 'Bphnta123!'

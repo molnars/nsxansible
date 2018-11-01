@@ -9,7 +9,7 @@
     nsx_transportzone:
       nsxmanager_spec: "{{ nsxmanager_spec }}"
       state: 'present'
-      name: 'TZ1'
+      name: 'TZ1-for-molnars'
       controlplanemode: 'HYBRID_MODE'
       description: 'My Transport Zone'
       cluster_moid_list:

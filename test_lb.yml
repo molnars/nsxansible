@@ -1,0 +1,32 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+     - answerfile_old_nsxman.yml
+  tasks:
+  - name: lb_config
+    lb_config: 
+      nsxmanager_spec: "{{ nsxmanager_spec }}"
+      state: absent
+      
+  - name: add_pools
+    add_pools: 
+      nsxmanager_spec: "{{ nsxmanager_spec }}"
+      state: absent
+      
+    nsxmanager_spec: 
+  - name: nsx_virtual_server
+    add_virtual_servers:
+      nsxmanager_spec: "{{ nsxmanager_spec }}"
+      state: absent
+      https_virtual_server_name: "{{  }}"
+      virtual_ip_address: ""
+      https_virtual_server_port: ""
+      http_app_rule_id: ""
+      name: "TestLS"
+      controlplanemode: "HYBRID_MODE"
+      description: "My Great Logical Switch"
+    register: add_virtual_servers
+
+  #- debug: var=create_logical_switch
